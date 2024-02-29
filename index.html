@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>count downtimer</title>
+    <link  href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+   
+<div class="container">
+    <div class="content">
+        <p>new product coming soon</p>
+        <h1><span>MOBILE PHONES</span> product <h1>coming soon</h1>
+        <div class="lunch-time">
+             <div>
+            <p id="days">00</p>
+            <span>days</span>
+        </div>
+        <div>
+            <p id="hours">00</p>
+            <span>hours</span>
+        </div>
+        <div>
+            <p id="minutes">00</p>
+            <span>minuets</span>
+        </div>
+        <div>
+            <p id="seconds">00</p>
+            <span>seconds</span>
+        </div>
+        </div>
+        
+       
+
+        <button>learn more</button>
+
+    </div>
+</div>
+<script>
+    var countdowndate= new Date("mar 10, 2024 00:00:00").getTime();
+    var x = setInterval(function(){
+        var now = new Date().getTime();
+        var distance = countdowndate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if(distance < 0){
+            clearInterval(x);
+            document.getElementById("days").innerHTML = "00"
+            document.getElementById("hours").innerHTML ="00"
+            document.getElementById("minutes").innerHTML ="00"
+            document.getElementById("seconds").innerHTML = "00"
+        }
+
+
+    },1000);
+
+</script>
+
+</body>
+</html>
